@@ -21,7 +21,7 @@ class ComicDownloader(scrapy.Spider):
     }
 
     def parse(self, response):
-        comicname = input('please type the name of comic following volume (alternative) you want to download (eg. 火影忍者 or 火影忍者 第三卷)')
+        comicname = input("""please type the name of comic following volume (alternative) you want to download (eg. 火影忍者 or 火影忍者 第三卷)：\n""")
 
         if not os.path.exists(self.download_dir):
             os.mkdir(self.download_dir)
@@ -42,7 +42,6 @@ class ComicDownloader(scrapy.Spider):
             os.mkdir(path)
 
         comicname = urllib.parse.quote(string=comicname, encoding='gb2312')
-        print(comicname, volume)
 
         searchasp = 'http://so.kukudm.com/search.asp?kw='
         searchurl = searchasp + comicname + '&Submit=%C8%B7%B6%A8'
@@ -61,7 +60,6 @@ class ComicDownloader(scrapy.Spider):
             href = self.page_url + sel.xpath('//a/@href').extract_first()
             text = sel.xpath('//a/text()').extract_first()
             volumes[text] = href
-            print(href, text)
 
         if self.volume != '':
             # specified volume
@@ -90,7 +88,6 @@ class ComicDownloader(scrapy.Spider):
         exists = os.path.exists(volpath)
         if not exists:
             os.mkdir(volpath)
-        print(vol_link)
         headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20100101 Firefox/23.0'}
         req = request.Request(url=vol_link, headers=headers)
         content = urlopen(req).read().decode('gbk')
