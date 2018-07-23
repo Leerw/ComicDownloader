@@ -21,7 +21,7 @@ class ComicDownloader(scrapy.Spider):
     }
 
     def parse(self, response):
-        comicname = input("""please type the name of comic following volume (alternative) you want to download (eg. 火影忍者 or 火影忍者 第三卷)：\n""")
+        comicname = input("""please type the name of comic following with volume (alternative) you want to download (eg. 火影忍者 or 火影忍者 第三卷)：\n""")
 
         if not os.path.exists(self.download_dir):
             os.mkdir(self.download_dir)

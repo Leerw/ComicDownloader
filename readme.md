@@ -23,5 +23,5 @@ cd ComicDownloader
 scrapy crawl comic
 
 # input what you want to download (comicname) or (comicname volume)
-please type the name of comic following volume (alternative) you want to download (eg. 火影忍者 or 火影忍者 第三卷)
+please type the name of comic following with volume (alternative) you want to download (eg. 火影忍者 or 火影忍者 第三卷)
 ```
