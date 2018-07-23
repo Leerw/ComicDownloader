@@ -19,6 +19,7 @@ eg.
 ## Using
 
 ```sh
+source activate liferay
 cd ComicDownloader
 scrapy crawl comic
 
